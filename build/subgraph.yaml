@@ -1,6 +1,6 @@
 specVersion: 0.0.4
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: undefined
@@ -23,7 +23,7 @@ dataSources:
         - Transfer
       abis:
         - name: Blockify
-          file: ./abis/Blockify.json
+          file: undefined/abis/Blockify.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,indexed uint256)
           handler: handleApproval
@@ -39,4 +39,4 @@ dataSources:
           handler: handlePostAdded
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-      file: ./src/blockify.ts
+      file: undefined/undefined.wasm
