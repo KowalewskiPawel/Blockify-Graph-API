@@ -1,0 +1,58 @@
+type Approval @entity {
+  id: ID!
+  owner: Bytes! # address
+  approved: Bytes! # address
+  tokenId: BigInt! # uint256
+}
+
+type ApprovalForAll @entity {
+  id: ID!
+  owner: Bytes! # address
+  operator: Bytes! # address
+  approved: Boolean! # bool
+}
+
+type BlogFollowed @entity {
+  id: ID!
+  blogId: BigInt! # uint256
+  follower: Bytes! # address
+}
+
+type BlogNFTMinted @entity {
+  id: ID!
+  sender: Bytes! # address
+  blogId: BigInt! # uint256
+  blogData_blogOwner: Bytes! # address
+  blogData_blogId: BigInt! # uint256
+  blogData_blogDid: String! # string
+  blogData_blogname: String! # string
+  blogData_coverPicture: String! # string
+  blogData_followers: BigInt! # uint256
+}
+
+type CommentAdded @entity {
+  id: ID!
+  commentAdded_idOfPost: String! # string
+  commentAdded_content: String! # string
+  commentAdded_authorId: Bytes! # address
+  commentAdded_date: BigInt! # uint256
+}
+
+type PostAdded @entity {
+  id: ID!
+  postAdded_id: String! # string
+  postAdded_title: String! # string
+  postAdded_content: String! # string
+  postAdded_picture: String! # string
+  postAdded_video: String! # string
+  postAdded_username: String! # string
+  postAdded_authorId: BigInt! # uint256
+  postAdded_date: BigInt! # uint256
+}
+
+type Transfer @entity {
+  id: ID!
+  from: Bytes! # address
+  to: Bytes! # address
+  tokenId: BigInt! # uint256
+}

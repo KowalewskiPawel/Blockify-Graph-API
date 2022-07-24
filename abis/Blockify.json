@@ -1,0 +1,488 @@
+[
+  { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "approved",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
+    ],
+    "name": "Approval",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "approved",
+        "type": "bool"
+      }
+    ],
+    "name": "ApprovalForAll",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "blogId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "follower",
+        "type": "address"
+      }
+    ],
+    "name": "BlogFollowed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "blogId",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          { "internalType": "address", "name": "blogOwner", "type": "address" },
+          { "internalType": "uint256", "name": "blogId", "type": "uint256" },
+          { "internalType": "string", "name": "blogDid", "type": "string" },
+          { "internalType": "string", "name": "blogname", "type": "string" },
+          {
+            "internalType": "string",
+            "name": "coverPicture",
+            "type": "string"
+          },
+          { "internalType": "uint256", "name": "followers", "type": "uint256" }
+        ],
+        "indexed": false,
+        "internalType": "struct DataTypes.Blog",
+        "name": "blogData",
+        "type": "tuple"
+      }
+    ],
+    "name": "BlogNFTMinted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "string", "name": "idOfPost", "type": "string" },
+          { "internalType": "string", "name": "content", "type": "string" },
+          { "internalType": "address", "name": "authorId", "type": "address" },
+          { "internalType": "uint256", "name": "date", "type": "uint256" }
+        ],
+        "indexed": false,
+        "internalType": "struct DataTypes.Comment",
+        "name": "commentAdded",
+        "type": "tuple"
+      }
+    ],
+    "name": "CommentAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "string", "name": "id", "type": "string" },
+          { "internalType": "string", "name": "title", "type": "string" },
+          { "internalType": "string", "name": "content", "type": "string" },
+          { "internalType": "string", "name": "picture", "type": "string" },
+          { "internalType": "string", "name": "video", "type": "string" },
+          { "internalType": "string", "name": "username", "type": "string" },
+          { "internalType": "uint256", "name": "authorId", "type": "uint256" },
+          { "internalType": "uint256", "name": "date", "type": "uint256" }
+        ],
+        "indexed": false,
+        "internalType": "struct DataTypes.Post",
+        "name": "postAdded",
+        "type": "tuple"
+      }
+    ],
+    "name": "PostAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
+    ],
+    "name": "Transfer",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "TOKEN_ADDRESS",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_commentToAdd", "type": "string" },
+      { "internalType": "string", "name": "_postId", "type": "string" },
+      { "internalType": "address", "name": "_blogOwner", "type": "address" },
+      { "internalType": "uint256", "name": "_blogsId", "type": "uint256" }
+    ],
+    "name": "addComment",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "approve",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "owner", "type": "address" }
+    ],
+    "name": "balanceOf",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "", "type": "string" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "name": "blogComments",
+    "outputs": [
+      { "internalType": "string", "name": "idOfPost", "type": "string" },
+      { "internalType": "string", "name": "content", "type": "string" },
+      { "internalType": "address", "name": "authorId", "type": "address" },
+      { "internalType": "uint256", "name": "date", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "name": "blogFollowers",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "blogs",
+    "outputs": [
+      { "internalType": "address", "name": "blogOwner", "type": "address" },
+      { "internalType": "uint256", "name": "blogId", "type": "uint256" },
+      { "internalType": "string", "name": "blogDid", "type": "string" },
+      { "internalType": "string", "name": "blogname", "type": "string" },
+      { "internalType": "string", "name": "coverPicture", "type": "string" },
+      { "internalType": "uint256", "name": "followers", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "blogsOwners",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_blogToCheckId", "type": "uint256" }
+    ],
+    "name": "checkProfileOwner",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "blogOwner", "type": "address" },
+          { "internalType": "uint256", "name": "blogId", "type": "uint256" },
+          { "internalType": "string", "name": "blogDid", "type": "string" },
+          { "internalType": "string", "name": "blogname", "type": "string" },
+          {
+            "internalType": "string",
+            "name": "coverPicture",
+            "type": "string"
+          },
+          { "internalType": "uint256", "name": "followers", "type": "uint256" }
+        ],
+        "internalType": "struct DataTypes.Blog",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "doesBlogExist",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "name": "doesBlognameExist",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_followedBlogId",
+        "type": "uint256"
+      },
+      { "internalType": "address", "name": "_blogOwner", "type": "address" }
+    ],
+    "name": "followBlog",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "getApproved",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_blogFollowersId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBlogFollowers",
+    "outputs": [
+      { "internalType": "address[]", "name": "", "type": "address[]" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_postId", "type": "string" }
+    ],
+    "name": "getComments",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "string", "name": "idOfPost", "type": "string" },
+          { "internalType": "string", "name": "content", "type": "string" },
+          { "internalType": "address", "name": "authorId", "type": "address" },
+          { "internalType": "uint256", "name": "date", "type": "uint256" }
+        ],
+        "internalType": "struct DataTypes.Comment[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "owner", "type": "address" },
+      { "internalType": "address", "name": "operator", "type": "address" }
+    ],
+    "name": "isApprovedForAll",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "name": "isFollower",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_blogname", "type": "string" },
+      { "internalType": "string", "name": "_blogdid", "type": "string" },
+      { "internalType": "string", "name": "_coverPicture", "type": "string" }
+    ],
+    "name": "mintBlogNFT",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "name",
+    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "ownerOf",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "", "type": "string" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "name": "postComments",
+    "outputs": [
+      { "internalType": "string", "name": "idOfPost", "type": "string" },
+      { "internalType": "string", "name": "content", "type": "string" },
+      { "internalType": "address", "name": "authorId", "type": "address" },
+      { "internalType": "uint256", "name": "date", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "from", "type": "address" },
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "safeTransferFrom",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "from", "type": "address" },
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" },
+      { "internalType": "bytes", "name": "data", "type": "bytes" }
+    ],
+    "name": "safeTransferFrom",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "operator", "type": "address" },
+      { "internalType": "bool", "name": "approved", "type": "bool" }
+    ],
+    "name": "setApprovalForAll",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes4", "name": "interfaceId", "type": "bytes4" }
+    ],
+    "name": "supportsInterface",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "symbol",
+    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
+    ],
+    "name": "tokenURI",
+    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "from", "type": "address" },
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "transferFrom",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
